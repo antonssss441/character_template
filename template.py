@@ -1,5 +1,6 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import random
+import os 
 
 
 def main():
@@ -8,6 +9,7 @@ def main():
         autoescape=select_autoescape(['html'])
     )
     template = env.get_template('template.html')
+    os.makedirs('characters', exist_ok=True)
     character_races = ['человек', 'орк', 'эльф', 'гоблин']
     character_classes = ['охотник', 'ассасин', 'бард', 'воин', 'маг']
     clases_base = {
